@@ -1,1 +1,3 @@
-# strimo
+# Strimo
+
+# Coding snippet
