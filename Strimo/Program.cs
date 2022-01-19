@@ -11,7 +11,7 @@ namespace Strimo
 
         static void Main(string[] args)
         {
-            int[] testValues = { 1, 9, 19, 199, 234, 456, 1800, 1934, 1999, 3000, 3104, 3999 };
+            int[] testValues = { -1000, 0, 1, 9, 19, 199, 234, 456, 1800, 1934, 1999, 3000, 3104, 3999, 10000 };
 
             foreach(var i in testValues)
             {
@@ -23,7 +23,11 @@ namespace Strimo
         {
             string retVal;
 
-            if (n == 0)
+            if (n < 0)
+            {
+                retVal = "Please enter an integer greater than 0 and less than 3999";
+            }
+            else if (n == 0)
             {
                 retVal = "Nullus";
             }
@@ -34,11 +38,11 @@ namespace Strimo
             else
             {
                 var thousands = m[GetPlace(n, 1000)];
-                var hundereds = c[GetPlace(n, 100)];
+                var hundreds = c[GetPlace(n, 100)];
                 var tens = x[GetPlace(n, 10)];
                 var ones = i[GetPlace(n, 1)];
 
-                retVal = string.Concat(thousands, hundereds, tens, ones);
+                retVal = string.Concat(thousands, hundreds, tens, ones);
             }
 
             return retVal;
